@@ -27,7 +27,7 @@ public class Main {
 
                 JSONObject json = new JSONObject(response.toString());
                 JSONArray temps = json.getJSONArray("temperatures");
-
+                String timestamp = json.getString("timestamp");
                 double sum = 0;
                 double max = Double.MIN_VALUE;
                 double min = Double.MAX_VALUE;
@@ -45,6 +45,7 @@ public class Main {
                     System.out.println();
                 }
                 System.out.printf("統計結果：%n");
+                System.out.printf("獲取時間: %s%n",timestamp);
                 System.out.printf("平均溫度: %.2f°C%n", sum / temps.length());
                 System.out.printf("最高溫度: %.2f°C%n", max);
                 System.out.printf("最低溫度: %.2f°C%n", min);
